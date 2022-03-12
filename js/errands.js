@@ -32,14 +32,14 @@ function logout() {
     localStorage.removeItem("userId");
     localStorage.removeItem("userLogged");
     localStorage.removeItem("token");
-    window.location.href = './login.html';
+    window.location.href = './index.html';
 }
 
 function verifyToken() {
     const tokenExist = localStorage.getItem("token");
     if(!tokenExist) {
         alert("Você precisa estar logado para acessar essa tela.");
-        window.location.href = './login.html';
+        window.location.href = './index.html';
     }
 }
 

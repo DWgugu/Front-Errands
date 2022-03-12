@@ -57,7 +57,7 @@ function goLogin(getAlert, viewModal) {
     getAlert.classList.add("alert-success");
     viewModal;
     getAlert.innerHTML = "<strong>EBAA</strong> Cadastrado com sucesso.";
-    setTimeout(() => {window.location.href = "login.html"}, 2000);
+    setTimeout(() => {window.location.href = "index.html"}, 2000);
 };
 
 function closeAlert(viewModal, getAlert) {
