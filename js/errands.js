@@ -9,7 +9,7 @@ window.addEventListener("load", () => {
 verifyToken()
 
 const userId = localStorage.getItem("userId");
-const link = "http://localhost:8080";
+const link = "https://api-errands.herokuapp.com";
 
 function viewName() {
     const getUsername = localStorage.getItem("userLogged");

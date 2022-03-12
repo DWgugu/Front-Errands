@@ -4,7 +4,7 @@ window.addEventListener("load", () => {
     })
 })
 
-const link = "http://localhost:8080";
+const link = "https://api-errands.herokuapp.com";
 
 function login(event) {
     event.preventDefault();

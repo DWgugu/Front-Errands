@@ -1,4 +1,4 @@
-const link = "http://localhost:8080";
+const link = "https://api-errands.herokuapp.com";
 
 function registerAccount(getUser, getPassword, getAlert, viewModal) {   
     axios.post(link + "/users", {
