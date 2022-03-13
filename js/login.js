@@ -14,7 +14,13 @@ function login(event) {
     const viewModal = getAlert.setAttribute("style", "display: block");
 
     axios.get(link + "/users").then((response) => {
-        const data = response.data; console.log(data);   
+        const data = response.data; console.log(data);  
+         if(data.length === 0) {
+                viewModal;
+                getAlert.innerHTML = "<strong>ERRO!</strong> Usuário ou senha incorrétos.";
+                userLogin.focus();
+                closeAlert(viewModal, getAlert);
+            }
         for (let searchAccount of data) {
             if(searchAccount.user !== userLogin.value || searchAccount.password !== passwordLogin.value) {
                 viewModal;
@@ -27,9 +33,8 @@ function login(event) {
                 localStorage.setItem("userId", searchAccount.id);
                 createToken();
                 window.location.href = "./errands.html";
-            } 
-        }
-                       
+            }             
+        }                       
     })
 }
 
