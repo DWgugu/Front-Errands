@@ -55,17 +55,3 @@ body {
 .logout {
     background: var(--btn-color);
 }
-
-.fa-eyes .fa-user {
-    position: fixed;
-    right: 4%;
-    margin-top: 7px;
-}
-
-.scratch {
-    text-decoration: line-through var(--btn-color);
-}
-
-input[type='checkbox']:checked + label {
-    text-decoration: line-through;
-} 

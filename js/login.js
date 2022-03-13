@@ -16,7 +16,7 @@ function login(event) {
     axios.get(link + "/users").then((response) => {
         const data = response.data; console.log(data);   
         for (let searchAccount of data) {
-            if(searchAccount.user !== userLogin.value && searchAccount.password !== passwordLogin.value) {
+            if(searchAccount.user !== userLogin.value || searchAccount.password !== passwordLogin.value) {
                 viewModal;
                 getAlert.innerHTML = "<strong>ERRO!</strong> Usuário ou senha incorrétos.";
                 userLogin.focus();
@@ -28,7 +28,8 @@ function login(event) {
                 createToken();
                 window.location.href = "./errands.html";
             } 
-        }               
+        }
+                       
     })
 }
 

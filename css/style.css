@@ -95,7 +95,7 @@ img {
     font-weight: bold;
 }
 
-.form-check-input:checked {
+input[type = 'checkbox']:checked {
     background-color:black ;
 }
 
@@ -104,15 +104,18 @@ img {
 }
 
 #alert {
-    position: absolute;
-    left: 50%;
-    top: 82%;
+    position: relative;
+    width: 100%;
     display: none;
 }
 
 i {
-    position: fixed;
-    right: 4%;
+    position: absolute;
+    right: 46%;
     margin-top: 7px;
     cursor: pointer;
+}
+
+input[type = 'text'], [type = 'password'] {
+    padding-left: 50px;
 }
