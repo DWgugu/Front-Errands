@@ -3,10 +3,13 @@ window.addEventListener("load", () => {
         verifyToken()
         viewName();
         viewTable(userId);
-        console.log(response.data);
+        data = response.data;
+        console.log(data);
     })
 })
 verifyToken()
+
+var data; // Criei essa variavel apenas para testar um funcionamento na ultima função do código.
 
 const userId = localStorage.getItem("userId");
 const link = "https://api-errands.herokuapp.com";
@@ -54,7 +57,7 @@ function viewTable(userId) {
             contentTable += 
             `
                 <tr>
-                    <td class="col-1""><input onclick="scratchedText(${indice})" id="checkboxErrand" class="" type="checkbox"></td>
+                    <td class="col-1""><input onclick="scratchedText(${indice})" name="checkboxErrand" type="checkbox"></td>
                     <td class="col-3" id="titleText">${searchErrand.title}</td>
                     <td class="col-6" id="descriptionText">${searchErrand.description}</td>
                     <td class="col-2">
@@ -118,25 +121,28 @@ function getIdErrand(idErrand) {
    localStorage.setItem("idErrand",  JSON.stringify(idErrand));
 }
 
+/*
+    Tentei fazer uma função que riscasse o recado checado, porem não tive sucesso, esse foi o maximo que consegui.
+    Tentei criar checkbox com name para gerar um NodeList e usar os indices, essa parte foi um sucesso, mas na hora de riscar o recado
+        ele risca apenas o indice 0.
+    Se achar onde estou errando, pode me mostrar na correção? :)
+*/ 
 function scratchedText(indice) {
     const getTitle = document.getElementById("titleText");
     const getDescription = document.getElementById("descriptionText");
-    const checkboxErrand = document.getElementById("checkboxErrand");
+    const checkboxErrand = document.getElementsByName("checkboxErrand");
 
-    const sub = getTitle[indice];
-    console.log(sub);
-
-
-       // for (let searchErrand of indice) {
-            if(checkboxErrand.checked) {
-                //getTitle.classList.add("scratch");
-                //getDescription.classList.add("scratch");
+    const check = checkboxErrand[indice];
+    console.log(check);
+    console.log(data[indice].title);// A VARIAVEL foi usada aqui para trazer a lista para dentro da função
+            if(check.checked) {
+                console.log(getDescription[0]);
                 getTitle.setAttribute("style", "text-decoration: line-through");
-               // console.log(indice);
+                getDescription.setAttribute("style", "text-decoration: line-through");
             } else {
-                getTitle.classList.remove("scratch");
-                getDescription.classList.remove("scratch");
-            }
-       // }     
-    
+                getTitle.setAttribute("style", "text-decoration: none");
+                getDescription.setAttribute("style", "text-decoration: none");
+            }    
 }
+const checkboxErrand = document.getElementsByName("checkboxErrand");// Testes da função no console
+console.log(checkboxErrand);
