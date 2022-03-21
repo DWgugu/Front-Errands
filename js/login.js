@@ -32,10 +32,18 @@ function login(event) {
                 localStorage.setItem("userLogged", searchAccount.user);
                 localStorage.setItem("userId", searchAccount.id);
                 createToken();
-                window.location.href = "./errands.html";
+                alertSuccess(getAlert, viewModal);
             }             
         }                       
     })
+}
+
+function alertSuccess(getAlert, viewModal) {
+    getAlert.classList.remove("alert-danger");
+    getAlert.classList.add("alert-success");
+    viewModal;
+    getAlert.innerHTML = "<strong>LOGANDO</strong>";
+    setTimeout(() => {window.location.href = "errands.html"}, 2000);
 }
 
 function createToken() {

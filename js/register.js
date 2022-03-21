@@ -29,11 +29,11 @@ function verifyRecord(event) {
                 getAlert.innerHTML = "<strong>ERRO!</strong> Usuário ja existe.";
             }
         }
-        if (userRegister < 3) {
+        if (userRegister.length < 3) {
             viewModal;
             getAlert.innerHTML = "<strong>ERRO!</strong> Usuário deve conter no mínimo 3 caracteres."; 
             closeAlert(viewModal, getAlert);                          
-        } else if (passwordRegister < 8) {
+        } else if (passwordRegister.length < 8) {
             viewModal;
             getAlert.innerHTML = "<strong>ERRO!</strong> Senha deve conter no mínimo 8 caracteres."; 
             closeAlert(viewModal, getAlert);              
